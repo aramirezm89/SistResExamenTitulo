@@ -1,0 +1,72 @@
+﻿
+
+html {
+    height: 100%
+}
+
+.modal-content {
+    background-color: rgba(175, 118, 5,0.5)!important;
+}
+
+.body-main {
+    background-image: url("../Imagenes/fondo2.jpg");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+}
+
+.body-pedidos {
+    background-image: url("../Imagenes/fondo-blanco-gris-brillante-lineas-onduladas_1017-25101.jpg");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+
+.header {
+    text-align: center;
+    color: black;
+    margin-top: 50px;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.label-user {
+    color: black;
+    font-size: 30px;
+    text-align: left;
+    margin-right: 43px;
+    margin-top: 20px !important;
+    text-align: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+.label-pass {
+    color: black;
+    font-size: 30px;
+    text-align: left;
+    text-align: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+.boton {
+    width: 250px;
+    margin-bottom: 15px;
+    padding: 10px;
+    border-radius: 0;
+}
+
+.caja {
+    width: 280px;
+    padding: 10px;
+}
+
+.botonProductos {
+    width: 250px;
+    margin-bottom: 20px;
+    padding: 10px;
+    border-radius: 0;
+}

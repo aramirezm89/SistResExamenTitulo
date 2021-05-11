@@ -30,6 +30,9 @@
                         <li class="nav-item">
                            <a class="nav-link" href="consulta.aspx">Consulta Pedidos</a>
                         </li>
+                        <li class="nav-item">
+                           <a class="nav-link" href="venta.aspx">Productos mas vendidos</a>
+                        </li>
                            <li class="nav-item">
                            <a class="nav-link" href="cambiaEstado.aspx">Editar estado cliente</a>
                         </li>

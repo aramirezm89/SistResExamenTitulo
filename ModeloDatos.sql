@@ -242,3 +242,8 @@ exec SP_BuscaEstadoCliente 3
 	group by numeroPedido
 
 	delete from TBL_cliente where id_cliente = 19
+
+
+	select * from TBL_detalle where codigoProducto = 9010
+
+	select det.codigoProducto,pro.descripcion ,COUNT(cantidadProducto) as cantidad  from TBL_detalle det  inner join TBL_productos pro  on pro.codigoProducto = det.codigoProducto group by det.codigoProducto 

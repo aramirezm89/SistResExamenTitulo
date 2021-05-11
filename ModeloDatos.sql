@@ -224,26 +224,43 @@ where ped.numeroPedido =  @in_numeroPedido
 END
 
 exec SP_BuscaEstadoCliente 3
+---------------------------------------------------------------------------------------------------------------
+	--Procedimiento almacenado que busca todo el detalle segun numero de pedido
+	---------------------------------------------------------------------------------------------------------------
+	CREATE PROCEDURE SP_BuscaDetalle
+	@in_numeroPedido INT
+	AS
+    BEGIN
+	SELECT numeroPedido,pro.codigoProducto , descripcion, det.cantidadProducto, total  FROM TBL_productos pro 
+	INNER JOIN TBL_detalle det ON  pro.codigoProducto = det.codigoProducto WHERE numeroPedido = @in_numeroPedido
+	END
+
+	EXEC SP_BuscaDetalle 1
+
+	----------------------------------------------------------------------------------------------------------------
+	--Procedimiento almacenado que totaliza la compra segun numero pedido
+	----------------------------------------------------------------------------------------------------------------
+	CREATE PROCEDURE SP_TotalizaCompra
+	@in_numeroPedido INT
+	AS
+    BEGIN
+	SELECT SUM(total) as total FROM TBL_detalle WHERE numeroPedido = @in_numeroPedido
+	END
+
+	exec SP_TotalizaCompra 1
 
 
-	SELECT * FROM TBL_detalle order by numeroPedido
-	select * from TBL_pedidos
 
 
-	select * from TBL_detalle order by numeroPedido
-
-	SElect *  from TBL_cliente
-
-	delete from TBL_pedidos where id_cliente = 18
-
-	select * from TBL_detalle order by numeroPedido
-
-	select numeroPedido, sum(total) as montoTotalPedido from TBL_detalle 
-	group by numeroPedido
-
-	delete from TBL_cliente where id_cliente = 19
+-------------------------------------------------------------------------------------------------------------
+--Vista que muestra los pruductos mas vendidso
+--------------------------------------------------------------------------------------------------------------
 
 
-	select * from TBL_detalle where codigoProducto = 9010
+	CREATE VIEW V_ProductosMasVendidos
+	AS
+	SELECT TOP 100 det.codigoProducto,pro.descripcion ,COUNT(det.cantidadProducto) AS vendidos FROM TBL_detalle det  
+	INNER JOIN TBL_productos pro  ON pro.codigoProducto = det.codigoProducto GROUP BY det.codigoProducto, descripcion
+	Order BY vendidos DESC
 
-	select det.codigoProducto,pro.descripcion ,COUNT(cantidadProducto) as cantidad  from TBL_detalle det  inner join TBL_productos pro  on pro.codigoProducto = det.codigoProducto group by det.codigoProducto 
+	select * from V_ProductosMasVendidos
